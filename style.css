@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -46,7 +46,7 @@ nav {
 }
 
 .nav-inner {
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 24px;
   height: 56px;
@@ -56,10 +56,10 @@ nav {
 }
 
 .nav-logo {
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 16px;
   color: var(--accent);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 nav ul {
@@ -81,9 +81,35 @@ nav a:hover {
   color: var(--text);
 }
 
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3fb950;
+  background: rgba(63, 185, 80, 0.08);
+  border: 1px solid rgba(63, 185, 80, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #3fb950;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 /* HERO */
 #hero {
-  padding: 110px 0 90px;
+  padding: 120px 0 90px;
   position: relative;
   overflow: hidden;
 }
@@ -91,11 +117,11 @@ nav a:hover {
 #hero::before {
   content: "";
   position: absolute;
-  top: -120px;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(88,166,255,0.06) 0%, transparent 70%);
+  top: -150px;
+  left: -150px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(88,166,255,0.07) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -103,17 +129,17 @@ nav a:hover {
   color: var(--accent);
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 #hero h1 {
-  font-size: clamp(36px, 6vw, 56px);
+  font-size: clamp(40px, 7vw, 64px);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 14px;
-  background: linear-gradient(135deg, #e6edf3 60%, #58a6ff);
+  line-height: 1.08;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #e6edf3 55%, #58a6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,11 +163,12 @@ nav a:hover {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  margin-bottom: 56px;
 }
 
 .btn {
   display: inline-block;
-  padding: 10px 22px;
+  padding: 11px 26px;
   background: var(--accent);
   color: #0d1117;
   text-decoration: none;
@@ -168,16 +195,91 @@ nav a:hover {
   opacity: 1;
 }
 
+/* HERO STATS */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg2);
+  width: fit-content;
+  overflow: hidden;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 36px;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  background: var(--bg2);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee-track span::before {
+  content: "·";
+  margin-right: 32px;
+  color: var(--border-hover);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* SECTIONS */
 section {
-  padding: 80px 0;
+  padding: 88px 0;
   border-top: 1px solid var(--border);
 }
 
 section h2 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -200,14 +302,19 @@ section > .container > p {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
+  gap: 16px;
 }
 
 .skill-group {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 20px;
+  padding: 22px;
+  transition: border-color 0.2s;
+}
+
+.skill-group:hover {
+  border-color: var(--border-hover);
 }
 
 .skill-group h3 {
@@ -300,15 +407,15 @@ section > .container > p {
 /* PROJECTS */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 16px;
 }
 
 .project-card {
   background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -317,7 +424,7 @@ section > .container > p {
 
 .project-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .project-top {
@@ -327,15 +434,15 @@ section > .container > p {
 }
 
 .project-top h3 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .project-card > p {
   font-size: 14px;
   color: var(--muted);
   flex: 1;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .project-link {
@@ -344,6 +451,7 @@ section > .container > p {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  margin-top: 4px;
 }
 
 .project-link:hover {
@@ -351,8 +459,21 @@ section > .container > p {
 }
 
 /* CONTACT */
+.contact-cta {
+  font-size: clamp(28px, 5vw, 44px) !important;
+  font-weight: 800 !important;
+  color: var(--text) !important;
+  margin-bottom: 12px !important;
+  max-width: none !important;
+  line-height: 1.1 !important;
+}
+
 #contact > .container > p {
-  margin-bottom: 24px;
+  margin-bottom: 8px;
+}
+
+#contact > .container > p:last-of-type {
+  margin-bottom: 28px;
 }
 
 .contact-links {
@@ -392,13 +513,26 @@ footer p {
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   nav ul {
-    gap: 12px;
+    gap: 14px;
   }
 
   nav a {
     font-size: 12px;
+  }
+
+  .nav-status {
+    display: none;
+  }
+
+  .hero-stats {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .stat {
+    padding: 16px 20px;
   }
 
   .tl-header {
