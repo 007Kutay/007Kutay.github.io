@@ -415,27 +415,29 @@ section > .container > p {
 }
 
 .company-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  height: 24px;
+  width: auto;
+  max-width: 72px;
+  border-radius: 5px;
   object-fit: contain;
-  background: #fff;
-  padding: 5px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 3px 6px;
   flex-shrink: 0;
-  border: 1px solid var(--border);
 }
 
 .logo-letter {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
   background: var(--bg3);
   border: 1px solid var(--border);
   color: var(--accent);
   font-weight: 700;
-  font-size: 17px;
-  border-radius: 8px;
-  padding: 0;
+  font-size: 14px;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .tl-header h3 {
