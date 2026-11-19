@@ -12,43 +12,47 @@
     <div class="nav-inner">
       <span class="nav-logo">Kutay Necdet Şen</span>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
-      <span class="nav-status"><span class="status-dot"></span>Available</span>
+      <div class="nav-right">
+        <span class="nav-status"><span class="status-dot"></span><span data-i18n="nav_status">Available</span></span>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-sep">|</span>
+          <button class="lang-btn" data-lang="tr">TR</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <section id="hero">
     <div class="container">
-      <p class="hero-sub">Hi, I'm</p>
+      <p class="hero-sub" data-i18n="hero_greeting">Hi, I'm</p>
       <h1>Kutay Necdet Şen</h1>
-      <p class="hero-title">Computer Engineering Student · Full-Stack Developer</p>
-      <p class="hero-desc">
-        I build web platforms and automation systems focused on real user needs.
-        Based in İstanbul, studying at Beykent University.
-      </p>
+      <p class="hero-title" data-i18n="hero_title">Computer Engineering Student · Full-Stack Developer</p>
+      <p class="hero-desc" data-i18n="hero_desc">I build web platforms and automation systems focused on real user needs. Based in İstanbul, studying at Beykent University.</p>
       <div class="hero-btns">
-        <a href="https://github.com/007Kutay" class="btn" target="_blank" rel="noopener">View Work</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="https://github.com/007Kutay" class="btn" target="_blank" rel="noopener" data-i18n="hero_btn_work">View Work</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">Get in Touch</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-num">3+</span>
-          <span class="stat-label">Projects</span>
+          <span class="stat-label" data-i18n="stat_projects">Projects</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-num">1+</span>
-          <span class="stat-label">Years Coding</span>
+          <span class="stat-label" data-i18n="stat_coding">Years Coding</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-num">1</span>
-          <span class="stat-label">Internship</span>
+          <span class="stat-label" data-i18n="stat_internship">Internship</span>
         </div>
       </div>
     </div>
@@ -72,6 +76,7 @@
       <span class="pill">Linux</span>
       <span class="pill">Jira</span>
       <span class="pill">YOLO</span>
+      <span class="pill">React</span>
       <span class="pill">Node.js</span>
       <span class="pill">Python</span>
       <span class="pill">JavaScript</span>
@@ -88,27 +93,23 @@
       <span class="pill">Linux</span>
       <span class="pill">Jira</span>
       <span class="pill">YOLO</span>
+      <span class="pill">React</span>
     </div>
   </div>
 
   <section id="about">
     <div class="container">
-      <h2>About</h2>
-      <p>
-        Computer Engineering student at Istanbul Beykent University, building full-stack web platforms and
-        automation systems. I focus on solving real business problems — from guest check-in systems to
-        AI-powered inventory tools. My internship at Atez Yazılım gave me hands-on experience with
-        production-grade APIs, containerized environments, and Agile workflows.
-      </p>
+      <h2 data-i18n="about_heading">About</h2>
+      <p data-i18n="about_text">Computer Engineering student at Istanbul Beykent University, building full-stack web platforms and automation systems. I focus on solving real business problems — from guest check-in systems to AI-powered inventory tools. My internship at Atez Yazılım gave me hands-on experience with production-grade APIs, containerized environments, and Agile workflows.</p>
     </div>
   </section>
 
   <section id="skills">
     <div class="container">
-      <h2>Skills</h2>
+      <h2 data-i18n="skills_heading">Skills</h2>
       <div class="skills-grid">
         <div class="skill-group">
-          <h3>Languages</h3>
+          <h3 data-i18n="skills_languages">Languages</h3>
           <div class="tags">
             <span>C++</span>
             <span>Python</span>
@@ -117,7 +118,7 @@
           </div>
         </div>
         <div class="skill-group">
-          <h3>Web &amp; Database</h3>
+          <h3 data-i18n="skills_web">Web &amp; Database</h3>
           <div class="tags">
             <span>HTML</span>
             <span>CSS</span>
@@ -128,7 +129,7 @@
           </div>
         </div>
         <div class="skill-group">
-          <h3>Tools</h3>
+          <h3 data-i18n="skills_tools">Tools</h3>
           <div class="tags">
             <span>Git</span>
             <span>GitHub</span>
@@ -143,7 +144,7 @@
 
   <section id="experience">
     <div class="container">
-      <h2>Experience</h2>
+      <h2 data-i18n="experience_heading">Experience</h2>
       <div class="timeline">
 
         <div class="timeline-item">
@@ -151,17 +152,17 @@
             <div class="tl-left">
               <img class="company-logo" src="atez.png" alt="Atez">
               <div>
-                <h3>Software Engineering Intern</h3>
+                <h3 data-i18n="exp1_title">Software Engineering Intern</h3>
                 <p class="company">Atez Yazılım Teknolojileri A.Ş.</p>
               </div>
             </div>
             <span class="date">Jul 2025 – Aug 2025</span>
           </div>
           <ul>
-            <li>Built RESTful APIs and database architectures using Node.js, LoopBack4, TypeScript, and PostgreSQL.</li>
-            <li>Set up Docker containers and managed version control with Git/GitHub.</li>
-            <li>Participated in Agile sprints using Jira, Confluence, and Slack.</li>
-            <li>Designed UI/UX interfaces in Figma and joined code review sessions.</li>
+            <li data-i18n="exp1_li1">Built RESTful APIs and database architectures using Node.js, LoopBack4, TypeScript, and PostgreSQL.</li>
+            <li data-i18n="exp1_li2">Set up Docker containers and managed version control with Git/GitHub.</li>
+            <li data-i18n="exp1_li3">Participated in Agile sprints using Jira, Confluence, and Slack.</li>
+            <li data-i18n="exp1_li4">Designed UI/UX interfaces in Figma and joined code review sessions.</li>
           </ul>
         </div>
 
@@ -170,15 +171,15 @@
             <div class="tl-left">
               <img class="company-logo" src="decathlon.jpg" alt="Decathlon">
               <div>
-                <h3>Sales Advisor</h3>
+                <h3 data-i18n="exp2_title">Sales Advisor</h3>
                 <p class="company">Decathlon</p>
               </div>
             </div>
-            <span class="date">Jul 2023 – Present</span>
+            <span class="date" data-i18n="exp2_date">Jul 2023 – Present</span>
           </div>
           <ul>
-            <li>Analyzed customer needs and managed inventory in a fast-paced retail environment.</li>
-            <li>Solved problems under pressure with cross-functional teams.</li>
+            <li data-i18n="exp2_li1">Analyzed customer needs and managed inventory in a fast-paced retail environment.</li>
+            <li data-i18n="exp2_li2">Solved problems under pressure with cross-functional teams.</li>
           </ul>
         </div>
 
@@ -188,7 +189,7 @@
 
   <section id="projects">
     <div class="container">
-      <h2>Projects</h2>
+      <h2 data-i18n="projects_heading">Projects</h2>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -196,14 +197,14 @@
             <h3>Flux-door</h3>
             <span class="date">2026</span>
           </div>
-          <p>Web platform and admin panel for nightclub guest and PR management. Mobile-optimized, deployed live on a VPS with security configurations and CI/CD via GitHub.</p>
+          <p data-i18n="proj1_desc">Web platform and admin panel for nightclub guest and PR management. Mobile-optimized, deployed live on a VPS with security configurations and CI/CD via GitHub.</p>
           <div class="tags">
             <span>Node.js</span>
             <span>Express</span>
             <span>SQLite</span>
             <span>JavaScript</span>
           </div>
-          <a class="project-link" href="https://flux-door.com" target="_blank" rel="noopener">View Live ↗</a>
+          <a class="project-link" href="https://flux-door.com" target="_blank" rel="noopener" data-i18n="proj1_link">View Live ↗</a>
         </div>
 
         <div class="project-card">
@@ -211,14 +212,29 @@
             <h3>Visual Product Recognition</h3>
             <span class="date">2025 – 2026</span>
           </div>
-          <p>End-to-end AI pipeline for inventory matching. Analyzes product images using YOLO for object detection, EasyOCR for text extraction, Hugging Face NER, and TF-IDF similarity.</p>
+          <p data-i18n="proj2_desc">End-to-end AI pipeline for inventory matching. Analyzes product images using YOLO for object detection, EasyOCR for text extraction, Hugging Face NER, and TF-IDF similarity.</p>
           <div class="tags">
             <span>Python</span>
             <span>YOLO</span>
             <span>Streamlit</span>
             <span>SQLite</span>
           </div>
-          <a class="project-link" href="https://github.com/007Kutay" target="_blank" rel="noopener">View on GitHub ↗</a>
+          <a class="project-link" href="https://github.com/007Kutay" target="_blank" rel="noopener" data-i18n="proj2_link">View on GitHub ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <h3>Skibase</h3>
+            <span class="date">2026</span>
+          </div>
+          <p data-i18n="proj3_desc">Real-time ski resort dashboard for Turkey's major slopes. Displays weather conditions, 5-day forecasts, snow depth, and equipment recommendations for in-store sales consultants.</p>
+          <div class="tags">
+            <span>React</span>
+            <span>Vite</span>
+            <span>Tailwind CSS</span>
+            <span>Vercel</span>
+          </div>
+          <a class="project-link" href="https://github.com/007Kutay/skibase" target="_blank" rel="noopener" data-i18n="proj3_link">View on GitHub ↗</a>
         </div>
 
       </div>
@@ -227,9 +243,9 @@
 
   <section id="contact">
     <div class="container">
-      <h2>Contact</h2>
-      <p class="contact-cta">Let's build something.</p>
-      <p>Open to internship opportunities, collaborations, and interesting projects.</p>
+      <h2 data-i18n="contact_heading">Contact</h2>
+      <p class="contact-cta" data-i18n="contact_cta">Let's build something.</p>
+      <p data-i18n="contact_sub">Open to internship opportunities, collaborations, and interesting projects.</p>
       <div class="contact-links">
         <a href="mailto:kutaysen56@gmail.com">kutaysen56@gmail.com</a>
         <a href="https://github.com/007Kutay" target="_blank" rel="noopener">github.com/007Kutay</a>
@@ -240,9 +256,121 @@
 
   <footer>
     <div class="container">
-      <p>Kutay Necdet Şen · İstanbul, Türkiye</p>
+      <p data-i18n="footer_text">Kutay Necdet Şen · İstanbul, Turkey</p>
     </div>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_experience: "Experience",
+        nav_projects: "Projects",
+        nav_contact: "Contact",
+        nav_status: "Available",
+        hero_greeting: "Hi, I'm",
+        hero_title: "Computer Engineering Student · Full-Stack Developer",
+        hero_desc: "I build web platforms and automation systems focused on real user needs. Based in İstanbul, studying at Beykent University.",
+        hero_btn_work: "View Work",
+        hero_btn_contact: "Get in Touch",
+        stat_projects: "Projects",
+        stat_coding: "Years Coding",
+        stat_internship: "Internship",
+        about_heading: "About",
+        about_text: "Computer Engineering student at Istanbul Beykent University, building full-stack web platforms and automation systems. I focus on solving real business problems — from guest check-in systems to AI-powered inventory tools. My internship at Atez Yazılım gave me hands-on experience with production-grade APIs, containerized environments, and Agile workflows.",
+        skills_heading: "Skills",
+        skills_languages: "Languages",
+        skills_web: "Web & Database",
+        skills_tools: "Tools",
+        experience_heading: "Experience",
+        exp1_title: "Software Engineering Intern",
+        exp1_li1: "Built RESTful APIs and database architectures using Node.js, LoopBack4, TypeScript, and PostgreSQL.",
+        exp1_li2: "Set up Docker containers and managed version control with Git/GitHub.",
+        exp1_li3: "Participated in Agile sprints using Jira, Confluence, and Slack.",
+        exp1_li4: "Designed UI/UX interfaces in Figma and joined code review sessions.",
+        exp2_title: "Sales Advisor",
+        exp2_date: "Jul 2023 – Present",
+        exp2_li1: "Analyzed customer needs and managed inventory in a fast-paced retail environment.",
+        exp2_li2: "Solved problems under pressure with cross-functional teams.",
+        projects_heading: "Projects",
+        proj1_desc: "Web platform and admin panel for nightclub guest and PR management. Mobile-optimized, deployed live on a VPS with security configurations and CI/CD via GitHub.",
+        proj1_link: "View Live ↗",
+        proj2_desc: "End-to-end AI pipeline for inventory matching. Analyzes product images using YOLO for object detection, EasyOCR for text extraction, Hugging Face NER, and TF-IDF similarity.",
+        proj2_link: "View on GitHub ↗",
+        proj3_desc: "Real-time ski resort dashboard for Turkey's major slopes. Displays weather conditions, 5-day forecasts, snow depth, and equipment recommendations for in-store sales consultants.",
+        proj3_link: "View on GitHub ↗",
+        contact_heading: "Contact",
+        contact_cta: "Let's build something.",
+        contact_sub: "Open to internship opportunities, collaborations, and interesting projects.",
+        footer_text: "Kutay Necdet Şen · İstanbul, Turkey",
+      },
+      tr: {
+        nav_about: "Hakkımda",
+        nav_skills: "Yetenekler",
+        nav_experience: "Deneyim",
+        nav_projects: "Projeler",
+        nav_contact: "İletişim",
+        nav_status: "Müsait",
+        hero_greeting: "Merhaba, ben",
+        hero_title: "Bilgisayar Mühendisliği Öğrencisi · Full-Stack Developer",
+        hero_desc: "Gerçek kullanıcı ihtiyaçlarına odaklı web platformları ve otomasyon sistemleri geliştiriyorum. İstanbul'da yaşıyor, Beykent Üniversitesi'nde okuyorum.",
+        hero_btn_work: "Projelerimi Gör",
+        hero_btn_contact: "İletişime Geç",
+        stat_projects: "Proje",
+        stat_coding: "Yıl Kodlama",
+        stat_internship: "Staj",
+        about_heading: "Hakkımda",
+        about_text: "İstanbul Beykent Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; full-stack web platformları ve otomasyon sistemleri geliştiriyorum. Misafir giriş sistemlerinden yapay zeka destekli envanter araçlarına kadar gerçek iş problemlerini çözmeye odaklanıyorum. Atez Yazılım'daki stajım bana üretim ortamı API'leri, konteyner altyapısı ve Agile iş akışları konusunda uygulamalı deneyim kazandırdı.",
+        skills_heading: "Yetenekler",
+        skills_languages: "Diller",
+        skills_web: "Web & Veritabanı",
+        skills_tools: "Araçlar",
+        experience_heading: "Deneyim",
+        exp1_title: "Yazılım Geliştirici Stajyeri",
+        exp1_li1: "Node.js, LoopBack4, TypeScript ve PostgreSQL kullanarak RESTful API'ler ve veritabanı mimarileri geliştirdim.",
+        exp1_li2: "Docker konteynerleri kurdum ve Git/GitHub ile sürüm kontrolü yönettim.",
+        exp1_li3: "Jira, Confluence ve Slack kullanarak Agile sprint'lerine katıldım.",
+        exp1_li4: "Figma'da UI/UX arayüzleri tasarladım ve kod inceleme oturumlarına katıldım.",
+        exp2_title: "Satış Danışmanı",
+        exp2_date: "Tem 2023 – Günümüz",
+        exp2_li1: "Hızlı tempolu bir perakende ortamında müşteri ihtiyaçlarını analiz ettim ve envanteri yönettim.",
+        exp2_li2: "Çapraz fonksiyonlu ekiplerle baskı altında problem çözdüm.",
+        projects_heading: "Projeler",
+        proj1_desc: "Gece kulübü misafir ve PR yönetimi için web platformu ve admin paneli. Mobil optimize edilmiş, VPS üzerinde canlıya alınmış, güvenlik yapılandırmaları ve GitHub üzerinden CI/CD ile.",
+        proj1_link: "Canlıyı Gör ↗",
+        proj2_desc: "Envanter eşleştirme için uçtan uca yapay zeka pipeline'ı. Nesne tespiti için YOLO, metin çıkarımı için EasyOCR, Hugging Face NER ve TF-IDF benzerliği kullanarak ürün görüntülerini analiz eder.",
+        proj2_link: "GitHub'da Gör ↗",
+        proj3_desc: "Türkiye'nin büyük kayak merkezleri için gerçek zamanlı hava durumu panosu. Hava koşulları, 5 günlük tahmin, kar derinliği ve satış danışmanları için teçhizat önerileri sunar.",
+        proj3_link: "GitHub'da Gör ↗",
+        contact_heading: "İletişim",
+        contact_cta: "Birlikte üretelim.",
+        contact_sub: "Staj fırsatlarına, iş birliklerine ve ilgi çekici projelere açığım.",
+        footer_text: "Kutay Necdet Şen · İstanbul, Türkiye",
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    const saved = localStorage.getItem('lang');
+    const browserLang = navigator.language.startsWith('tr') ? 'tr' : 'en';
+    setLang(saved || browserLang);
+  </script>
 
 </body>
 </html>
