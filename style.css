@@ -593,16 +593,22 @@ section > .container > p {
   color: var(--text);
 }
 
-.edu-roadmap {
-  margin-top: 20px;
+.timeline-item--with-road {
   display: flex;
-  justify-content: flex-start;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-.rm-svg {
-  max-width: 340px;
-  width: 100%;
-  overflow: visible;
+.tl-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.tl-road {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
 }
 
 .rm-present-dot {
@@ -696,6 +702,15 @@ footer p {
 
   .stat {
     padding: 16px 20px;
+  }
+
+  .timeline-item--with-road {
+    flex-direction: column;
+  }
+
+  .tl-road {
+    justify-content: center;
+    width: 100%;
   }
 
   .tl-header {
