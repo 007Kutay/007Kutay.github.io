@@ -593,22 +593,25 @@ section > .container > p {
   color: var(--text);
 }
 
-.timeline-item--with-road {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
+/* JOURNEY */
+.journey-wrap {
+  overflow-x: auto;
 }
 
-.tl-content {
-  flex: 1;
-  min-width: 0;
+.journey-svg {
+  display: block;
+  width: 100%;
+  min-width: 420px;
+  overflow: visible;
 }
 
-.tl-road {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  padding-top: 4px;
+.rm-present-dot-blue {
+  animation: rmPresentPulseBlue 2s ease-in-out infinite;
+}
+
+@keyframes rmPresentPulseBlue {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(88, 166, 255, 0.3)); }
+  50%       { filter: drop-shadow(0 0 10px rgba(88, 166, 255, 0.9)); }
 }
 
 .rm-present-dot {
@@ -702,15 +705,6 @@ footer p {
 
   .stat {
     padding: 16px 20px;
-  }
-
-  .timeline-item--with-road {
-    flex-direction: column;
-  }
-
-  .tl-road {
-    justify-content: center;
-    width: 100%;
   }
 
   .tl-header {
