@@ -593,77 +593,25 @@ section > .container > p {
   color: var(--text);
 }
 
-.roadmap-wrap {
-  padding: 50px 16px 50px;
-}
-
-.roadmap-track {
-  position: relative;
-  height: 4px;
-  background: var(--bg3);
-  border-radius: 999px;
-}
-
-.roadmap-fill {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #3fb950 0%, #58a6ff 24%, #d29922 48%, #f85149 72%, #58a6ff 100%);
-  border-radius: 999px;
-}
-
-.rm-node {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.rm-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--dot-color, var(--accent));
-  border: 3px solid var(--bg2);
-  position: relative;
-  z-index: 1;
-}
-
-.rm-dot--pulse {
-  animation: rmPulse 2s ease-in-out infinite;
-}
-
-@keyframes rmPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.5); }
-  50%       { box-shadow: 0 0 0 7px rgba(88, 166, 255, 0); }
-}
-
-.rm-label {
-  position: absolute;
+.edu-roadmap {
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  gap: 1px;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-content: flex-start;
 }
 
-.rm-label--top {
-  bottom: calc(100% + 10px);
+.rm-svg {
+  max-width: 340px;
+  width: 100%;
+  overflow: visible;
 }
 
-.rm-label--bottom {
-  top: calc(100% + 10px);
+.rm-present-dot {
+  animation: rmPresentPulse 2s ease-in-out infinite;
 }
 
-.rm-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.rm-date-label {
-  font-size: 10px;
-  color: var(--muted);
+@keyframes rmPresentPulse {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(240, 180, 41, 0.3)); }
+  50%       { filter: drop-shadow(0 0 10px rgba(240, 180, 41, 0.9)); }
 }
 
 /* FOOTER */
