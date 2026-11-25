@@ -5,6 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kutay Necdet Şen</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>window.tailwind={config:{corePlugins:{preflight:false}}}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-dark: #0b0f17;
+      --text-muted: #7c8594;
+    }
+    .roadmap-section-wrap {
+      padding: 0 24px;
+    }
+    .roadmap-wrapper {
+      width: 100%;
+      max-width: 1140px;
+      background: radial-gradient(circle at 50% 45%, #121a2a 0%, var(--bg-dark) 80%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.7);
+      margin: 0 auto;
+    }
+    .roadmap-legend {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: all 0.25s ease;
+    }
+    .legend-item:hover, .legend-item.active {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.22);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .brand-swatch {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .brand-swatch img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .svg-scroll-container { width: 100%; overflow-x: auto; padding-bottom: 6px; }
+    .svg-scroll-container::-webkit-scrollbar { height: 6px; }
+    .svg-scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 999px; }
+    .svg-scroll-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 999px; }
+    .roadmap-svg { width: 100%; min-width: 960px; height: 440px; display: block; overflow: visible; }
+    .road-base { fill: none; stroke-width: 22; stroke-linecap: round; transition: opacity 0.3s ease, filter 0.3s ease; }
+    .road-beykent { filter: drop-shadow(0 0 8px rgba(253,184,19,0.55)); }
+    .road-decathlon { filter: drop-shadow(0 0 9px rgba(54,67,186,0.75)); }
+    .road-atez { filter: drop-shadow(0 0 8px rgba(232,238,245,0.55)); }
+    .road-dash {
+      fill: none; stroke-width: 2.2; stroke-dasharray: 9 11; stroke-linecap: round;
+      pointer-events: none; animation: dashFlowHorizontal 18s linear infinite;
+    }
+    @keyframes dashFlowHorizontal { to { stroke-dashoffset: -200; } }
+    .node-circle {
+      stroke: var(--bg-dark); stroke-width: 4; transition: transform 0.25s ease;
+      transform-box: fill-box; transform-origin: center;
+    }
+    .lane-group { cursor: pointer; transition: opacity 0.3s ease; }
+    .lane-group:hover .node-circle, .lane-group.active .node-circle { transform: scale(1.18); }
+    .roadmap-svg.has-hover .lane-group { opacity: 0.22; }
+    .roadmap-svg.has-hover .lane-group.active { opacity: 1; }
+    .time-axis-label { font-size: 11px; fill: #64748b; font-weight: 700; letter-spacing: 0.6px; }
+    .time-grid-line { stroke: rgba(255,255,255,0.08); stroke-width: 1; stroke-dasharray: 4 6; }
+    .detail-card {
+      margin-top: 14px; padding: 14px 20px; border-radius: 16px;
+      background: rgba(18,25,40,0.72); border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px); display: flex; justify-content: space-between;
+      align-items: center; gap: 16px; flex-wrap: wrap;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+  </style>
 </head>
 <body>
 
@@ -202,42 +297,172 @@
   <section id="experience">
     <div class="container">
       <h2 data-i18n="experience_heading">Experience</h2>
-      <div class="timeline">
+    </div>
+    <div class="roadmap-section-wrap">
+      <div class="roadmap-wrapper">
 
-        <div class="timeline-item">
-          <div class="tl-header">
-            <div class="tl-left">
-              <img class="company-logo" src="atez.png" alt="Atez">
-              <div>
-                <h3 data-i18n="exp1_title">Software Engineering Intern</h3>
-                <p class="company">Atez Yazılım Teknolojileri A.Ş.</p>
-              </div>
-            </div>
-            <span class="date">Jul 2025 – Aug 2025</span>
+        <!-- Marka Göstergeleri -->
+        <div class="roadmap-legend">
+          <div class="legend-item" data-target="lane-beykent">
+            <span class="brand-swatch" style="border:1.5px solid #FDB813;box-shadow:0 0 12px rgba(253,184,19,0.45);">
+              <img src="https://www.beykent.edu.tr/images/default-source/kurumsal-kimlik/bu-logo-ena344a390f0204b15b4ef275c524f2503.png?sfvrsn=3d0504fe_12" alt="Beykent University" onerror="this.onerror=null;this.src='https://placehold.co/60x60/FDB813/002B5B?text=BU';" />
+            </span>
+            <span>Beykent University</span>
           </div>
-          <ul>
-            <li data-i18n="exp1_li1">Built RESTful APIs and database architectures using Node.js, LoopBack4, TypeScript, and PostgreSQL.</li>
-            <li data-i18n="exp1_li2">Set up Docker containers and managed version control with Git/GitHub.</li>
-            <li data-i18n="exp1_li3">Participated in Agile sprints using Jira, Confluence, and Slack.</li>
-            <li data-i18n="exp1_li4">Designed UI/UX interfaces in Figma and joined code review sessions.</li>
-          </ul>
+          <div class="legend-item" data-target="lane-decathlon">
+            <span class="brand-swatch" style="border:1.5px solid #3643BA;box-shadow:0 0 12px rgba(54,67,186,0.55);">
+              <img src="https://www.decathlon.com.tr/apple-icon.png?18b0e71a595d3137" alt="Decathlon" onerror="this.onerror=null;this.src='https://placehold.co/60x60/3643BA/FFFFFF?text=D';" />
+            </span>
+            <span>Decathlon</span>
+          </div>
+          <div class="legend-item" data-target="lane-atez">
+            <span class="brand-swatch" style="border:1.5px solid #E8EEF5;box-shadow:0 0 12px rgba(232,238,245,0.35);background:#0f172a;">
+              <img src="https://image.dha.com.tr/i/dha/75/1200x675/68d4e001d500d97442a55d4e.jpg" alt="Atez" onerror="this.onerror=null;this.src='https://placehold.co/60x60/1E293B/E8EEF5?text=A';" />
+            </span>
+            <span>Atez Software Technologies</span>
+          </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="tl-header">
-            <div class="tl-left">
-              <img class="company-logo" src="decathlon.jpg" alt="Decathlon">
-              <div>
-                <h3 data-i18n="exp2_title">Sales Advisor</h3>
-                <p class="company">Decathlon</p>
-              </div>
+        <!-- Yatay Paralel SVG Yol Haritası -->
+        <div class="svg-scroll-container">
+          <svg id="parallelRoadmap" class="roadmap-svg" width="1100" height="440" viewBox="0 0 1100 440" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-beykent" gradientUnits="userSpaceOnUse" x1="110" y1="0" x2="965" y2="0">
+                <stop offset="0%" stop-color="#FDB813" />
+                <stop offset="50%" stop-color="#F5A623" />
+                <stop offset="100%" stop-color="#FDB813" />
+              </linearGradient>
+              <linearGradient id="grad-decathlon" gradientUnits="userSpaceOnUse" x1="320" y1="0" x2="965" y2="0">
+                <stop offset="0%" stop-color="#0082C3" />
+                <stop offset="40%" stop-color="#3643BA" />
+                <stop offset="100%" stop-color="#3643BA" />
+              </linearGradient>
+              <linearGradient id="grad-atez" gradientUnits="userSpaceOnUse" x1="720" y1="0" x2="810" y2="0">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="100%" stop-color="#E8EEF5" />
+              </linearGradient>
+            </defs>
+
+            <!-- Dikey Zaman Kılavuz Çizgileri -->
+            <g class="time-grid">
+              <line x1="110" y1="60" x2="110" y2="375" class="time-grid-line" />
+              <text x="110" y="402" text-anchor="middle" class="time-axis-label">SEP 2022</text>
+              <line x1="320" y1="60" x2="320" y2="375" class="time-grid-line" />
+              <text x="320" y="402" text-anchor="middle" class="time-axis-label">JUN 2023</text>
+              <line x1="720" y1="60" x2="720" y2="375" class="time-grid-line" />
+              <text x="720" y="402" text-anchor="middle" class="time-axis-label">JUL 2025</text>
+              <line x1="810" y1="60" x2="810" y2="375" class="time-grid-line" />
+              <text x="810" y="402" text-anchor="middle" class="time-axis-label">AUG 2025</text>
+              <line x1="965" y1="60" x2="965" y2="375" class="time-grid-line" />
+              <text x="965" y="402" text-anchor="middle" class="time-axis-label">NOV 2026</text>
+            </g>
+
+            <!-- Şerit 1: Beykent University (Sep 2022 – Present) -->
+            <g id="lane-beykent" class="lane-group"
+               data-title="Beykent University"
+               data-role="Lisans Eğitimi (Bilgisayar Mühendisliği)"
+               data-period="Eylül 2022 – Günümüz (Kasım 2026)"
+               data-color="#FDB813">
+              <path class="road-base road-beykent" stroke="url(#grad-beykent)"
+                d="M 110 185 C 250 115,395 115,537.5 185 C 680 255,825 255,965 185" />
+              <path class="road-dash" stroke="#002B5B" opacity="0.65"
+                d="M 110 185 C 250 115,395 115,537.5 185 C 680 255,825 255,965 185" />
+              <circle cx="110" cy="185" r="13" fill="#FDB813" class="node-circle" />
+              <circle cx="110" cy="185" r="4.5" fill="#002B5B" pointer-events="none" />
+              <line x1="110" y1="172" x2="110" y2="128" stroke="#FDB813" stroke-width="1.5" opacity="0.75" />
+              <foreignObject x="16" y="74" width="212" height="54">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex items-center gap-2.5 bg-[#0f1624]/95 border border-[#FDB813]/50 rounded-full px-2.5 py-1.5 shadow-lg">
+                  <div class="w-9 h-9 rounded-full bg-white flex-shrink-0 overflow-hidden border border-[#FDB813] flex items-center justify-center">
+                    <img src="https://www.beykent.edu.tr/images/default-source/kurumsal-kimlik/bu-logo-ena344a390f0204b15b4ef275c524f2503.png?sfvrsn=3d0504fe_12" alt="Beykent University" class="w-full h-full object-contain p-0.5" onerror="this.onerror=null;this.src='https://placehold.co/60x60/FDB813/002B5B?text=BU';" />
+                  </div>
+                  <div class="leading-tight pr-2">
+                    <div class="text-[12.5px] font-bold text-[#FDB813] whitespace-nowrap">Beykent University</div>
+                    <div class="text-[10.5px] font-medium text-slate-400">Sep 2022 • B.Sc.</div>
+                  </div>
+                </div>
+              </foreignObject>
+              <circle cx="320" cy="133" r="5.5" fill="#002B5B" stroke="#FDB813" stroke-width="2.5" />
+              <circle cx="537.5" cy="185" r="5.5" fill="#002B5B" stroke="#FDB813" stroke-width="2.5" />
+              <circle cx="720" cy="234" r="5.5" fill="#002B5B" stroke="#FDB813" stroke-width="2.5" />
+              <circle cx="965" cy="185" r="13" fill="#FDB813" class="node-circle road-beykent" />
+              <circle cx="965" cy="185" r="4.5" fill="#002B5B" pointer-events="none" />
+            </g>
+
+            <!-- Şerit 2: Decathlon (Jun 2023 – Present) -->
+            <g id="lane-decathlon" class="lane-group"
+               data-title="Decathlon"
+               data-role="Sales Advisor / Spor Lideri"
+               data-period="Haziran 2023 – Günümüz (Kasım 2026)"
+               data-color="#3643BA">
+              <path class="road-base road-decathlon" stroke="url(#grad-decathlon)"
+                d="M 320 161 C 392 156,465 178,537.5 213 C 680 283,825 283,965 213" />
+              <path class="road-dash" stroke="#FFFFFF" opacity="0.55"
+                d="M 320 161 C 392 156,465 178,537.5 213 C 680 283,825 283,965 213" />
+              <circle cx="320" cy="161" r="13" fill="#3643BA" class="node-circle" />
+              <line x1="320" y1="148" x2="320" y2="104" stroke="#3643BA" stroke-width="1.5" opacity="0.85" />
+              <foreignObject x="242" y="50" width="166" height="54">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex items-center gap-2.5 bg-[#0f1624]/95 border border-[#3643BA]/70 rounded-full px-2.5 py-1.5 shadow-lg">
+                  <div class="w-9 h-9 rounded-full bg-[#3643BA] flex-shrink-0 overflow-hidden border border-blue-400/50 flex items-center justify-center">
+                    <img src="https://www.decathlon.com.tr/apple-icon.png?18b0e71a595d3137" alt="Decathlon" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/60x60/3643BA/FFFFFF?text=D';" />
+                  </div>
+                  <div class="leading-tight pr-2">
+                    <div class="text-[12.5px] font-bold text-[#60A5FA] whitespace-nowrap">Decathlon</div>
+                    <div class="text-[10.5px] font-medium text-slate-400">Jun 2023</div>
+                  </div>
+                </div>
+              </foreignObject>
+              <circle cx="537.5" cy="213" r="5.5" fill="#0b0f17" stroke="#3643BA" stroke-width="2.5" />
+              <circle cx="720" cy="262" r="5.5" fill="#0b0f17" stroke="#3643BA" stroke-width="2.5" />
+              <circle cx="965" cy="213" r="13" fill="#3643BA" class="node-circle road-decathlon" />
+            </g>
+
+            <!-- Şerit 3: Atez (Jul 2025 – Aug 2025) -->
+            <g id="lane-atez" class="lane-group"
+               data-title="Atez Software Technologies"
+               data-role="Yazılım Geliştirici Stajyeri"
+               data-period="Temmuz 2025 – Ağustos 2025"
+               data-color="#E8EEF5">
+              <path class="road-base road-atez" stroke="url(#grad-atez)"
+                d="M 720 290 C 750 294,780 294,810 290" />
+              <path class="road-dash" stroke="#1e293b" opacity="0.65"
+                d="M 720 290 C 750 294,780 294,810 290" />
+              <circle cx="720" cy="290" r="11" fill="#E8EEF5" class="node-circle" />
+              <circle cx="810" cy="290" r="11" fill="#94A3B8" class="node-circle" />
+              <line x1="720" y1="301" x2="720" y2="322" stroke="#E8EEF5" stroke-width="1.5" opacity="0.75" />
+              <foreignObject x="642" y="322" width="166" height="54">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="flex items-center gap-2.5 bg-[#0f1624]/95 border border-[#E8EEF5]/40 rounded-full px-2.5 py-1.5 shadow-lg">
+                  <div class="w-9 h-9 rounded-full bg-slate-900 flex-shrink-0 overflow-hidden border border-[#E8EEF5]/50 flex items-center justify-center">
+                    <img src="https://image.dha.com.tr/i/dha/75/1200x675/68d4e001d500d97442a55d4e.jpg" alt="Atez" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/60x60/1E293B/E8EEF5?text=A';" />
+                  </div>
+                  <div class="leading-tight pr-2">
+                    <div class="text-[12.5px] font-bold text-[#E8EEF5] whitespace-nowrap">Atez</div>
+                    <div class="text-[10.5px] font-medium text-slate-400">Jul – Aug 2025</div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+
+            <!-- Sağ "Present" Kapsülü -->
+            <g transform="translate(1038, 199)">
+              <rect x="-46" y="-26" width="92" height="52" rx="16" fill="#131a29" stroke="rgba(255,255,255,0.16)" stroke-width="1" />
+              <text x="0" y="-3" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Present</text>
+              <text x="0" y="13" text-anchor="middle" fill="#7c8594" font-size="11">Nov 2026</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Etkileşimli Detay Çubuğu -->
+        <div id="detailCard" class="detail-card">
+          <div class="flex items-center gap-3">
+            <span id="detailDot" class="w-3 h-3 rounded-full" style="background:#FDB813;box-shadow:0 0 10px #FDB813;"></span>
+            <div>
+              <div id="detailTitle" class="text-sm font-bold text-white">Paralel Kariyer &amp; Akademik Yolculuk</div>
+              <div id="detailRole" class="text-xs text-slate-400">Detayları görmek için şeritlerin veya marka etiketlerinin üzerine gelin</div>
             </div>
-            <span class="date" data-i18n="exp2_date">Jul 2023 – Present</span>
           </div>
-          <ul>
-            <li data-i18n="exp2_li1">Analyzed customer needs and managed inventory in a fast-paced retail environment.</li>
-            <li data-i18n="exp2_li2">Solved problems under pressure with cross-functional teams.</li>
-          </ul>
+          <div id="detailPeriod" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
+            Sep 2022 – Nov 2026
+          </div>
         </div>
 
       </div>
@@ -437,6 +662,83 @@
     const saved = localStorage.getItem('lang');
     const browserLang = navigator.language.startsWith('tr') ? 'tr' : 'en';
     setLang(saved || browserLang);
+  </script>
+
+  <script>
+    (function () {
+      const svg = document.getElementById("parallelRoadmap");
+      const lanes = document.querySelectorAll(".lane-group");
+      const legends = document.querySelectorAll(".legend-item");
+      const detailCard = document.getElementById("detailCard");
+      const detailDot = document.getElementById("detailDot");
+      const detailTitle = document.getElementById("detailTitle");
+      const detailRole = document.getElementById("detailRole");
+      const detailPeriod = document.getElementById("detailPeriod");
+
+      const defaultState = {
+        title: "Paralel Kariyer & Akademik Yolculuk",
+        role: "Detayları görmek için şeritlerin veya marka etiketlerinin üzerine gelin",
+        period: "Sep 2022 – Nov 2026",
+        color: "#FDB813"
+      };
+
+      function updateDetailCard(lane) {
+        detailTitle.textContent = lane.dataset.title;
+        detailRole.textContent = lane.dataset.role;
+        detailPeriod.textContent = lane.dataset.period;
+        detailDot.style.background = lane.dataset.color;
+        detailDot.style.boxShadow = `0 0 12px ${lane.dataset.color}`;
+        detailCard.style.borderColor = `${lane.dataset.color}55`;
+      }
+
+      function resetDetailCard() {
+        detailTitle.textContent = defaultState.title;
+        detailRole.textContent = defaultState.role;
+        detailPeriod.textContent = defaultState.period;
+        detailDot.style.background = defaultState.color;
+        detailDot.style.boxShadow = `0 0 10px ${defaultState.color}`;
+        detailCard.style.borderColor = "rgba(255,255,255,0.08)";
+      }
+
+      function highlightLane(id) {
+        svg.classList.add("has-hover");
+        lanes.forEach(function (lane) {
+          var isMatch = lane.id === id;
+          lane.classList.toggle("active", isMatch);
+          if (isMatch) updateDetailCard(lane);
+        });
+        legends.forEach(function (item) {
+          item.classList.toggle("active", item.dataset.target === id);
+        });
+      }
+
+      function resetHighlight() {
+        svg.classList.remove("has-hover");
+        lanes.forEach(function (lane) { lane.classList.remove("active"); });
+        legends.forEach(function (item) { item.classList.remove("active"); });
+        resetDetailCard();
+      }
+
+      lanes.forEach(function (lane) {
+        lane.addEventListener("mouseenter", function () { highlightLane(lane.id); });
+        lane.addEventListener("mouseleave", resetHighlight);
+        lane.addEventListener("click", function (e) {
+          e.stopPropagation();
+          lane.classList.contains("active") ? resetHighlight() : highlightLane(lane.id);
+        });
+      });
+
+      legends.forEach(function (item) {
+        item.addEventListener("mouseenter", function () { highlightLane(item.dataset.target); });
+        item.addEventListener("mouseleave", resetHighlight);
+        item.addEventListener("click", function (e) {
+          e.stopPropagation();
+          item.classList.contains("active") ? resetHighlight() : highlightLane(item.dataset.target);
+        });
+      });
+
+      document.body.addEventListener("click", resetHighlight);
+    })();
   </script>
 
 </body>
