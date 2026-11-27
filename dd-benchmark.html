@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diferansiyel Denklemler Benchmark · Kutay Necdet Şen</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .bench-hero {
+      padding: 80px 0 56px;
+    }
+    .bench-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .bench-back:hover { color: var(--accent); }
+    .bench-back::before { content: "←"; }
+    .bench-badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      border: 1px solid rgba(88,166,255,0.25);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .bench-hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #e6edf3 55%, #58a6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .bench-meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .bench-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .bench-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .bench-link:hover {
+      border-color: var(--border-hover);
+      background: var(--accent-dim);
+    }
+    .bench-section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .bench-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .bench-section h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .bench-section p {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 720px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .bench-section p:last-child { margin-bottom: 0; }
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .bench-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .bench-table th, .bench-table td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .bench-table th {
+      background: var(--bg3);
+      color: var(--accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .bench-table tr:last-child td { border-bottom: none; }
+    .bench-table tr:hover td { background: rgba(88,166,255,0.03); }
+    .bench-table td { color: var(--text); }
+    .bench-table td:first-child { color: var(--muted); font-weight: 500; }
+    .score-top { color: var(--accent); font-weight: 800; }
+    .bench-img-wrap {
+      margin: 28px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .bench-img-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .bench-img-caption {
+      padding: 10px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .result-table th:not(:first-child),
+    .result-table td:not(:first-child) {
+      text-align: center;
+    }
+    .result-table td:first-child { color: var(--text); font-weight: 600; }
+    .note-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid rgba(88,166,255,0.5);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Kutay Necdet Şen</span>
+      <ul>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <span class="nav-status"><span class="status-dot"></span>Available</span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bench-hero" style="border-top: none; padding-top: 80px; padding-bottom: 56px;">
+    <div class="container">
+      <a href="index.html#projects" class="bench-back">Projelere Dön</a>
+      <div class="bench-badge">NEXA Fellowship · Week 4</div>
+      <h1>Diferansiyel Denklemler Benchmark</h1>
+      <p class="bench-meta">25–27 Kasım 2026 · 153 soru · 10 model · 4 firma</p>
+      <div class="bench-links">
+        <a class="bench-link" href="https://github.com/007Kutay/dd-benchmark" target="_blank" rel="noopener">GitHub reposu ↗</a>
+        <a class="bench-link" href="https://huggingface.co/datasets/007Kutay/dd-benchmark" target="_blank" rel="noopener">Hugging Face dataset ↗</a>
+        <a class="bench-link" href="https://github.com/nexa-lab-ai/nexa-bench/pull/4" target="_blank" rel="noopener">NEXA-Bench PR #4 ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bench-section">
+    <div class="container">
+      <h2>Benchmark</h2>
+      <p>Diferansiyel denklemler dersinden hazırladığım, her sorunun cevabı tek bir sayı olan <strong style="color:var(--text)">153 soruluk</strong> bir benchmark. Bu benchmark'la <strong style="color:var(--text)">10 dil modelini</strong> aynı koşullarda test ettim.</p>
+      <div class="table-wrap">
+        <table class="bench-table">
+          <tbody>
+            <tr><td>Soru</td><td>153 (102 insan + 51 AI)</td></tr>
+            <tr><td>Kategori</td><td>1. mertebe yöntemler (86) · Modelleme ve uygulama (15) · 2. ve yüksek mertebe (52)</td></tr>
+            <tr><td>Zorluk</td><td>47 kolay · 57 orta · 49 zor (%32 zor)</td></tr>
+            <tr><td>Model</td><td>10 model, 4 firma (Google, OpenAI, Alibaba, Meta), 6 açık ağırlıklı</td></tr>
+            <tr><td>Koşul</td><td>Aynı prompt, temperature 0, her soru ayrı istek, puanlama kodla ve ham çıktıdan</td></tr>
+            <tr><td>Maliyet</td><td>0 TL (Google AI Studio, Groq ve yerel Ollama ücretsiz katmanları)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-card">Sorular gizli: yalnızca Hugging Face'teki gated dataset'te duruyor. Burada sadece skorlar var.</div>
+    </div>
+  </section>
+
+  <section class="bench-section">
+    <div class="container">
+      <h2>Sonuçlar</h2>
+      <div class="table-wrap">
+        <table class="bench-table result-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Genel</th>
+              <th>İnsan</th>
+              <th>AI</th>
+              <th>Zor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>gpt-oss-120b</td><td class="score-top">98,0</td><td>98,0</td><td>98,0</td><td>93,9</td></tr>
+            <tr><td>gemma-4-31b-it</td><td class="score-top">96,0</td><td>96,0</td><td>96,0</td><td>89,4</td></tr>
+            <tr><td>qwen3.8-27b</td><td class="score-top">91,5</td><td>92,2</td><td>90,2</td><td>87,8</td></tr>
+            <tr><td>gpt-oss-20b</td><td class="score-top">90,2</td><td>93,1</td><td>84,3</td><td>77,6</td></tr>
+            <tr><td>gemini-3.1-flash-lite</td><td class="score-top">88,9</td><td>88,2</td><td>90,2</td><td>77,6</td></tr>
+            <tr><td>gemini-3.5-flash-lite</td><td class="score-top">85,0</td><td>84,3</td><td>86,3</td><td>73,5</td></tr>
+            <tr><td>gemma-4-26b-a4b-it</td><td class="score-top">56,2</td><td>51,0</td><td>66,7</td><td>28,6</td></tr>
+            <tr><td>llama3.2:3b (yerel)</td><td class="score-top">0,7</td><td>0,0</td><td>2,0</td><td>0,0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-card">gemini-3.5-flash (54 soru) ve gemini-4-hydrogen (28 soru) ücretsiz günlük kotaya takıldığı için kısmi koşuldu.</div>
+
+      <div class="bench-img-wrap">
+        <img src="dogruluk_zorluk_isi.png" alt="Zorluk ve kategoriye göre doğruluk ısı haritası" />
+        <div class="bench-img-caption">Zorluk ve kategoriye göre doğruluk</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bench-section">
+    <div class="container">
+      <h2>En şaşırtıcı bulgu: küçük modeller cevaba hiç ulaşamıyor</h2>
+      <p>Küçük modeller yanlış hesap yapmıyor, cevaba hiç varamıyor. Aynı 8.000 token'lık bütçede CEVAP satırına ulaşamama oranları: llama3.2:3b <strong style="color:var(--text)">%88</strong>, gemma-4-26b <strong style="color:var(--text)">%42</strong>, gpt-oss-20b %7, gpt-oss-120b <strong style="color:var(--text)">&lt;%1</strong>. gemma-4-26b bir soruda 0,73205'in nasıl yuvarlanacağını tartışırken bütçeyi bitirdi. llama3.2:3b ise "Step 153, Step 154…" diye bir döngüye girdi. Yani bu benchmark matematiğin yanında talimata uymayı ve verimli düşünmeyi de ölçüyor.</p>
+
+      <div class="bench-img-wrap">
+        <img src="dogruluk_maliyet.png" alt="Model başına doğruluk ve doğru cevap süresi karşılaştırması" />
+        <div class="bench-img-caption">Doğruluk ve doğru cevap başına süre</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bench-section">
+    <div class="container">
+      <h2>Kontaminasyon testi</h2>
+      <p>Gizli setteki 10 ders kitabı sorusunu kelimelerini değiştirerek (matematiği aynı bırakarak) tekrar sordum. Toplam doğruluk <strong style="color:var(--text)">%90'dan %82'ye</strong> düştü. En büyük model hiç etkilenmedi. Kayıplar, çözümü kitapta bulunan zor sorularda toplandı. Bu ezberle uyumlu bir işaret, ama örneklem küçük.</p>
+    </div>
+  </section>
+
+  <section class="bench-section">
+    <div class="container">
+      <h2>Yerel model</h2>
+      <p>llama3.2:3b'yi RTX 4060 dizüstü bilgisayarımda Ollama ile çalıştırdım: 2,6 GB model, internet yok, maliyet 0 TL. Aynı 30 soruda <strong style="color:var(--text)">%0</strong> aldı, en iyi bulut modeli ise %100. "2+3" gibi tek adımlı işlerde yeterli, ama çok adımlı hesapta döngüye giriyor.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Kutay Necdet Şen · İstanbul, Turkey</p>
+    </div>
+  </footer>
+
+</body>
+</html>
